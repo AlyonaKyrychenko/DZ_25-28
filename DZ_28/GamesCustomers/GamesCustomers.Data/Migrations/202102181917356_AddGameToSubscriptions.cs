@@ -1,0 +1,18 @@
+﻿namespace GamesCustomers.Data.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+
+    public partial class AddGameToSubscriptions : DbMigration
+    {
+        public override void Up()
+        {
+            DropColumn("dbo.Games", "SubscriptionId");
+        }
+
+        public override void Down()
+        {
+            AddColumn("dbo.Games", "SubscriptionId", c => c.Int(nullable: false));
+        }
+    }
+}
